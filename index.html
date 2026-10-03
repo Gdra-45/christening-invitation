@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-  scale=1.0">
+<title>Baby's Christening Invitation</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#fff0f6;	
+  color:#6f4055;
+}
+body{overflow-x:hidden}
+.hidden{display:none!important}
+
+.screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+/* ---------- COVER ---------- */
+.cover{
+  background:
+    radial-gradient(circle at 15% 15%,#fff 0 5px,transparent 6px),
+    radial-gradient(circle at 85% 25%,#fff 0 4px,transparent 5px),
+    linear-gradient(135deg,#ffd9e9,#fff7fa 50%,#ffc5df);
+  position:relative;
+  text-align:center;
+  overflow:hidden;
+}
+
+.sparkle{
+  position:absolute;
+  color:white;
+  font-size:22px;
+  animation:float 3s ease-in-out infinite;
+}
+.s1{left:12%;top:20%}
+.s2{right:12%;top:35%;animation-delay:.8s}
+.s3{left:20%;bottom:18%;animation-delay:1.4s}
+.s4{right:22%;bottom:24%;animation-delay:2s}
+
+.envelope-wrap{
+  width:min(430px,92vw);
+  position:relative;
+}
+
+.envelope{
+  height:250px;
+  background:#fffafc;
+  border-radius:18px;
+  position:relative;
+  box-shadow:0 18px 45px #c7839e55;
+  border:3px solid #f3aac7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.envelope:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%);
+  background:#ffd2e4;
+  border-radius:15px;
+  z-index:1;
+}
+
+.seal{
+  position:relative;
+  z-index:3;
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:#f28db5;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:31px;
+  box-shadow:0 5px 12px #b85e8355;
+  animation:pulse 2s infinite;
+}
+
+.cover-title{
+  margin-top:28px;
+  color:#8b4e68;
+}
+.cover-title h1{
+  font-size:30px;
+  margin:0 0 7px;
+}
+.cover-title p{
+  margin:5px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+}
+
+.open-btn,.submit{
+  border:0;
+  border-radius:30px;
+  background:#e987ae;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px #c8669155;
+  transition:.25s;
+}
+.open-btn{
+  margin-top:22px;
+  padding:14px 30px;
+  font-size:16px;
+}
+.open-btn:hover,.submit:hover{
+  transform:translateY(-2px);
+  background:#df709d;
+}
+
+/* ---------- DETAILS ---------- */
+.details{
+  background:linear-gradient(#fff5f9,#ffe5ef);
+  padding:34px 18px 45px;
+  display:block;
+}
+
+.card{
+  max-width:620px;
+  margin:auto;
+  background:#fffdfd;
+  border-radius:28px;
+  padding:30px 22px;
+  box-shadow:0 15px 40px #b85e8330;
+  border:2px solid #f7c2d7;
+  text-align:center;
+}
+
+.crown{
+  font-size:45px;
+  animation:float 3s ease-in-out infinite;
+}
+
+h2{
+  font-size:31px;
+  margin:5px 0;
+  color:#b05278;
+}
+.subtitle{
+  font-family:Arial,sans-serif;
+  color:#9a687b;
+}
+
+/* ---------- PHOTO ---------- */
+.photo-frame{
+  width:min(300px,82vw);
+  aspect-ratio:1/1;
+  margin:20px auto;
+  padding:8px;
+  border-radius:50%;
+  background:#fff;
+  border:3px solid #f3bfd3;
+  box-shadow:0 10px 30px #b85e8330;
+  overflow:hidden;
+}
+
+.photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+}
+
+.photo-placeholder{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#fff0f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  color:#a66c82;
+}
+
+.divider{
+  height:2px;
+  background:#f4c3d6;
+  margin:23px 0;
+}
+
+.info{
+  font-family:Arial,sans-serif;
+  line-height:1.65;
+  font-size:15px;
+}
+.info strong{color:#a34e73}
+
+.section-title{
+  font-size:22px;
+  color:#b05278;
+  margin-top:27px;
+}
+
+/* ---------- BUTTONS ---------- */
+.action-buttons{
+  display:grid;
+  gap:10px;
+  margin-top:24px;
+}
+
+.action-btn{
+  display:block;
+  padding:13px 16px;
+  border-radius:25px;
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  font-weight:bold;
+  font-size:14px;
+  color:#fff;
+  background:#e987ae;
+  transition:.25s;
+}
+.action-btn:hover{
+  transform:translateY(-2px);
+  background:#df709d;
+}
+
+/* ---------- RSVP ---------- */
+.rsvp{
+  margin-top:30px;
+  background:#fff0f6;
+  border-radius:22px;
+  padding:22px;
+  text-align:left;
+  border:1px solid #f3bfd3;
+}
+
+.rsvp h3{
+  text-align:center;
+  color:#a94e73;
+  font-size:23px;
+  margin:0 0 8px;
+}
+
+.rsvp p{
+  text-align:center;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  color:#9b7181;
+  margin:0 0 16px;
+}
+
+.submit{
+  width:100%;
+  margin-top:17px;
+  padding:13px;
+  font-size:16px;
+}
+
+.note{
+  text-align:center;
+  font:12px Arial,sans-serif;
+  color:#9b7181;
+  margin-top:12px;
+}
+
+.footer{
+  text-align:center;
+  font:12px Arial,sans-serif;
+  color:#a66c82;
+  margin-top:24px;
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.08)}
+}
+@keyframes float{
+  50%{transform:translateY(-9px)}
+}
+@keyframes reveal{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:none}
+}
+.reveal{animation:reveal .8s ease both}
+
+@media(max-width:480px){
+  .screen{padding:16px}
+  .card{padding:25px 16px}
+  .cover-title h1{font-size:27px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= COVER ================= -->
+<section id="cover" class="screen cover">
+  <div class="sparkle s1">✦</div>
+  <div class="sparkle s2">♡</div>
+  <div class="sparkle s3">✧</div>
+  <div class="sparkle s4">♡</div>
+
+  <div class="envelope-wrap">
+
+    <div class="envelope">
+      <div class="seal">♡</div>
+    </div>
+
+    <div class="cover-title">
+      <h1>You're Invited!</h1>
+      <p>to celebrate the Christening of</p>
+      <h1>Baby Princess</h1>
+      <p>Tap the button to open the invitation</p>
+    </div>
+
+    <button class="open-btn" onclick="openInvitation()">
+      Open Invitation ♡
+    </button>
+
+  </div>
+</section>
+
+
+<!-- ================= INVITATION ================= -->
+<section id="details" class="details hidden">
+
+  <div class="card reveal">
+
+    <div class="crown">👑</div>
+
+    <h2>Baby Princess</h2>
+    <p class="subtitle">A little princess is being christened!</p>
+
+
+    <!-- PHOTO
+         Put your photo in the same folder as this index.html
+         and rename it to baby-photo.jpg
+    -->
+    <div class="photo-frame">
+      <img
+        src="baby-photo.jpg"
+        alt="Baby Princess"
+        onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='flex';"
+      >
+
+      <div id="photoPlaceholder" class="photo-placeholder">
+        Add your baby's photo here.<br><br>
+        Rename your photo to:<br>
+        <strong>baby-photo.jpg</strong>
+      </div>
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <!-- CEREMONY -->
+    <div class="section-title">Christening Ceremony</div>
+
+    <div class="info">
+      <strong>Saturday, November 14, 2026</strong><br>
+      10:00 AM<br><br>
+
+      <strong>Sample Parish Church</strong><br>
+      Quezon City, Philippines
+    </div>
+
+
+    <!-- RECEPTION -->
+    <div class="section-title">Reception</div>
+
+    <div class="info">
+      12:00 PM<br>
+      <strong>Sample Garden Restaurant</strong><br>
+      Quezon City
+    </div>
+
+
+    <!-- FAMILY -->
+    <div class="section-title">With Love</div>
+
+    <div class="info">
+      Parents: <strong>Juan &amp; Maria</strong><br>
+      Godparents: <strong>To be announced</strong>
+    </div>
+
+
+    <!-- OPTIONAL BUTTONS -->
+    <div class="action-buttons">
+
+      <!-- Replace # with your Google Maps link -->
+      <a class="action-btn" href="#" target="_blank">
+        📍 View Location
+      </a>
+
+    </div>
+
+
+    <!-- ================= RSVP ================= -->
+    <div class="rsvp">
+
+      <h3>💗 RSVP</h3>
+
+      <p>
+        Please confirm your attendance by filling out our RSVP form.
+      </p>
+
+      <!--
+        IMPORTANT:
+        Replace the URL below with your Google Form URL.
+
+        Example:
+        https://docs.google.com/forms/d/e/XXXXXXXX/viewform
+      -->
+
+      <a
+        class="action-btn"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeCf3qKGqPZFXGcZQ_WqbpAmgb4EZdxGRiFcfhZ0Cv97-QjgQ/viewform?usp=dialog"
+         target="_blank" 
+      >
+        💌 RSVP NOW
+      </a>
+
+      <div class="note">
+        Your RSVP will be submitted through Google Forms.
+      </div>
+
+    </div>
+
+
+    <div class="footer">
+      We can't wait to celebrate this special day with you! ♡
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+function openInvitation(){
+
+  document.getElementById("cover").classList.add("hidden");
+
+  document.getElementById("details").classList.remove("hidden");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+</script>
+
+</body>
+</html>
